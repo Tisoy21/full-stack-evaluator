@@ -10,5 +10,18 @@ namespace TaskManager.Data
 
         public DbSet<User> Users => Set<User>();
         public DbSet<TaskItem> Tasks => Set<TaskItem>();
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder);
+            modelBuilder.Entity<User>().HasData(
+                new User
+                {
+                    Id = 1,
+                    Email = "testuser@example.com",
+                    PasswordHash = "test1234"
+                }
+            );
+        }
     }
 }

@@ -65,6 +65,14 @@ namespace task_manager_api.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Users");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Email = "testuser@example.com",
+                            PasswordHash = "test1234"
+                        });
                 });
 
             modelBuilder.Entity("TaskManager.Models.TaskItem", b =>
